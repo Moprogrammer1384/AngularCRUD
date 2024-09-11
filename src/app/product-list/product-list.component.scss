@@ -1,0 +1,19 @@
+.searchIcon {
+  cursor: pointer;
+}
+
+.add {
+  position: absolute;
+  bottom: 3%;
+  right: 3%;
+}
+
+.container {
+  display: flex;
+  grid-gap: 10px;
+}
+
+.button {
+  margin-top: 5px;
+  margin-bottom: 6.5px;
+}

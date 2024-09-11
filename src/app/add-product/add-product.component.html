@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>Add Product</h2>
+<mat-dialog-content [formGroup]="productForm">
+  <mat-form-field class="form-field">
+    <mat-label>Name</mat-label>
+    <input type="text" matInput formControlName="name" />
+    <mat-hint>Sample Help</mat-hint>
+    <mat-error *ngIf="name.hasError('required')"> Name is required </mat-error>
+    <mat-error *ngIf="name.hasError('minlength')">
+      Name must be at least 3 characters
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-field">
+    <mat-label>Price</mat-label>
+    <input type="text" matInput formControlName="price" />
+    <mat-error *ngIf="price.hasError('required')">
+      Price is required
+    </mat-error>
+    <mat-error *ngIf="price.hasError('pattern')">
+      Price is a numeric field
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-field">
+    <mat-label>Description</mat-label>
+    <textarea
+      type="text"
+      matInput
+      rows="3"
+      formControlName="description"
+    ></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="secondary" (click)="cancel()">
+    <mat-icon>cancel</mat-icon>
+    Cancel
+  </button>
+  <button mat-raised-button color="primary" (click)="save()">
+    <mat-icon>save</mat-icon>
+    Save
+  </button>
+</mat-dialog-actions>
