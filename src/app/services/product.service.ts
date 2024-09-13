@@ -9,9 +9,8 @@ import { SearchData } from '../models/search-data';
 })
 export class ProductService {
 
-  productServiceUrl: string = 'https://localhost:5001/product';
+  productServiceUrl: string = 'https://localhost:5001/products';
   constructor(private http: HttpClient) {
-
    }
 
   getProducts() : Product[] {

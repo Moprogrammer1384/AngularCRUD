@@ -14,6 +14,8 @@ import { AddProductComponent } from '../add-product/add-product.component';
 import { EditProductComponent } from '../edit-product/edit-product.component';
 import { producerAccessed } from '@angular/core/primitives/signals';
 import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
+import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -41,7 +43,9 @@ export class ProductListComponent implements AfterViewInit{
   constructor(
     private productService: ProductService,
     private toastr: ToastrService,
-    private dialog: MatDialog) {
+    private dialog: MatDialog,
+    private userService: UserService,
+    private router: Router) {
 
     this.products = new MatTableDataSource<Product>();
 
@@ -52,6 +56,10 @@ export class ProductListComponent implements AfterViewInit{
       'Actions'
     ];
     this.searchText = new FormControl('');
+
+    if(!userService.isAuthenticated()){
+      router.navigate(['/authorized']);
+    }
   }
 
   ngAfterViewInit(): void {

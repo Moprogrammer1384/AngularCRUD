@@ -7,7 +7,30 @@
     Home
   </button>
   <button mat-button
+          *ngIf="userService.isAuthenticated()"
           routerLink="/products">
     Products
+  </button>
+  <span style="flex: 1 1 auto;"></span>
+  <button mat-button
+          *ngIf="!userService.isAuthenticated()"
+          (click)="login()"
+          routerLink="/login">
+    Login
+  </button>
+  <button mat-button
+          *ngIf="!userService.isAuthenticated()"
+          (click)="register()">
+    Register
+  </button>
+  <button mat-button
+          *ngIf="userService.isAuthenticated()"
+          routerLink="/profile">
+    {{userService.UserName}}
+  </button>
+  <button mat-button
+          *ngIf="userService.isAuthenticated()"
+          (click)="logout()">
+    Logout
   </button>
 </mat-toolbar>

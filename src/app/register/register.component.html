@@ -1,0 +1,49 @@
+<h2 mat-dialog-title>Registration</h2>
+
+<mat-dialog-content [formGroup]="registrationForm">
+  <mat-form-field class="form-field">
+    <mat-label>Full Name</mat-label>
+    <input type="text" matInput formControlName="fullName" />
+    <mat-error *ngIf="fullName.hasError('required')"> Full Name is required </mat-error>
+    <mat-error *ngIf="fullName.hasError('minlength')">
+      Full Name must be at least 3 characters
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-field">
+    <mat-label>Email</mat-label>
+    <input type="text" matInput formControlName="email" />
+    <mat-error *ngIf="email.hasError('required')"> Email is required </mat-error>
+    <mat-error *ngIf="email.hasError('email')">
+      Please a correct email address
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-field">
+    <mat-label>User Name</mat-label>
+    <input type="text" matInput formControlName="userName" />
+    <mat-error *ngIf="userName.hasError('required')"> User Name is required </mat-error>
+    <mat-error *ngIf="userName.hasError('minlength')">
+      User Name must be at least 3 characters
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-field">
+    <mat-label>Password</mat-label>
+    <input type="password" matInput formControlName="password" />
+    <mat-error *ngIf="password.hasError('required')">
+      Price is required
+    </mat-error>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button
+          color="secondary"
+          (click)="cancel()">
+    <mat-icon>cancel</mat-icon>
+    Cancel
+  </button>
+  <button mat-raised-button
+          color="primary"
+          (click)="register()">
+    <mat-icon>save</mat-icon>
+    Register
+  </button>
+</mat-dialog-actions>

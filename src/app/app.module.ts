@@ -24,6 +24,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 
 @NgModule({
@@ -35,7 +39,11 @@ import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.componen
     ProductListComponent,
     AddProductComponent,
     EditProductComponent,
-    ConfirmDeleteComponent
+    ConfirmDeleteComponent,
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent,
+    UnauthorizedComponent
   ],
   imports: [
     BrowserModule,
